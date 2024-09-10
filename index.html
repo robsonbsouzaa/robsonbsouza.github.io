@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Perfil Pessoal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="navbar">
+        <nav>
+            <ul>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#projects">Projetos</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section id="home" class="section home">
+            <header class="profile-header">
+                <img src="https://via.placeholder.com/150" alt="Foto de Perfil" class="profile-img">
+                <h1 class="profile-name">Seu Nome</h1>
+                <p class="profile-bio">Desenvolvedor Frontend | Entusiasta de Design | Aficionado por Tecnologia</p>
+            </header>
+            <section class="social-links">
+                <a href="https://facebook.com" class="social-link" target="_blank">Facebook</a>
+                <a href="https://twitter.com" class="social-link" target="_blank">Twitter</a>
+                <a href="https://linkedin.com" class="social-link" target="_blank">LinkedIn</a>
+                <a href="https://github.com" class="social-link" target="_blank">GitHub</a>
+            </section>
+        </section>
+
+        <section id="about" class="section about">
+            <h2>Sobre Mim</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
+        </section>
+
+        <section id="projects" class="section projects">
+            <h2>Projetos</h2>
+            <p>Curabitur pretium tincidunt lacus. Nulla gravida orci a odio tincidunt.</p>
+        </section>
+
+        <section id="contact" class="section contact">
+            <h2>Contato</h2>
+            <p>Vivamus vestibulum ntulla nec ante. Praesent id metus a ante lobortis dapibus non a libero.</p>
+        </section>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.section');
+            
+            function checkSectionVisibility() {
+                const scrollY = window.scrollY;
+                const windowHeight = window.innerHeight;
+    
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top + scrollY;
+                    const sectionHeight = section.offsetHeight;
+                    
+                    if (scrollY + windowHeight > sectionTop + sectionHeight / 4) {
+                        section.classList.add('visible');
+                    }
+                });
+            }
+            
+            // Check visibility on scroll
+            window.addEventListener('scroll', checkSectionVisibility);
+            
+            // Check visibility on page load
+            checkSectionVisibility();
+        });
+    </script>
+    
+</body>
+</html>

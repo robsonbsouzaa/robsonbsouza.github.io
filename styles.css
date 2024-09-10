@@ -1,0 +1,186 @@
+/* Reset básico para garantir consistência entre navegadores */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Estilo da Navbar */
+.navbar {
+    width: 100%;
+    background-color: #333;
+    padding: 10px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.navbar nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.1em;
+    transition: color 0.3s;
+}
+
+.navbar a:hover {
+    color: #f4f4f4;
+}
+
+/* Estilo das Seções */
+.section {
+    padding: 60px 20px;
+    margin-top: 70px; /* Espaço para a navbar fixa */
+    opacity: 0; /* Inicialmente invisível para a animação */
+    transform: translateY(20px); /* Inicialmente movido para baixo */
+    transition: opacity 0.6s ease, transform 0.6s ease; /* Animação de transição */
+}
+
+.section h2 {
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+.section p {
+    font-size: 1.2em;
+    color: #555;
+}
+
+/* Cores diferentes para cada seção */
+.home {
+    background-color: #fff;
+}
+
+.about {
+    background-color: #e0f7fa;
+}
+
+.projects {
+    background-color: #ffe0b2;
+}
+
+.contact {
+    background-color: #c8e6c9;
+}
+
+/* Animação de aparição */
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Estilo do Container do Perfil */
+.container {
+    max-width: 800px;
+    width: 100%;
+    padding: 20px;
+}
+
+/* Estilo do cabeçalho do perfil */
+.profile-header {
+    margin-bottom: 20px;
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #333;
+    transition: transform 0.3s ease;
+}
+
+.profile-img:hover {
+    transform: scale(1.1);
+}
+
+.profile-name {
+    font-size: 2em;
+    margin-top: 10px;
+}
+
+.profile-bio {
+    color: #666;
+    font-size: 1.2em;
+    margin-top: 5px;
+}
+
+/* Estilo dos links sociais */
+.social-links {
+    margin-top: 20px;
+}
+
+.social-link {
+    display: inline-block;
+    margin: 10px;
+    font-size: 1.1em;
+    text-decoration: none;
+    color: #fff;
+    background-color: #007BFF;
+    border: 2px solid #007BFF;
+    border-radius: 5px;
+    padding: 10px 20px;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+    cursor: pointer; /* Muda o cursor para uma mão ao passar por cima do botão */
+}
+
+.social-link:hover {
+    background-color: #0056b3;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .profile-name {
+        font-size: 1.5em;
+    }
+
+    .profile-bio {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .profile-name {
+        font-size: 1.2em;
+    }
+
+    .profile-bio {
+        font-size: 0.9em;
+    }
+
+    .social-link {
+        display: block;
+        margin: 10px auto;
+        width: 80%;
+    }
+}
